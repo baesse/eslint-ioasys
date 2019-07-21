@@ -14,7 +14,10 @@
   },
   "rules": {
     "accessor-pairs": "error",
-    "array-bracket-newline": "off",
+    "array-bracket-newline": ["off", {
+      "multiline": true,
+      "minItems": 4
+    }],
     "array-bracket-spacing": [
       "error",
       "always",
