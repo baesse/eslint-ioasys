@@ -69,10 +69,14 @@
     "eol-last": "error",
     "eqeqeq": "error",
     "func-call-spacing": "error",
-    "func-name-matching": "error",
+    "func-name-matching": ["error", "never"],
     "func-names": ["error", "never"],
-    "func-style": ["error", "declaration"],
-    "function-paren-newline": ["error", "never"],
+    "func-style": ["error", "declaration", {
+      "allowArrowFunctions": true
+    }],
+    "function-paren-newline": ["error", {
+      "minItems": 0
+    }],
     "generator-star-spacing": ["error", {
       "before": true,
       "after": false,
