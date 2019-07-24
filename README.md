@@ -517,3 +517,116 @@ var shorthand = { *generator() {} };
 ```
 
 ### [global-require](https://eslint.org/docs/rules/global-require)
+- Por boa prática normalmente importações de pacotes/módulos são organizadas no início do arquivo e fora de blocos, porém em alguns casos pode ser necessário, como importar um pacote de acordo com o `NODE_ENV`, nesse caso a regra deverá ser ignorada apenas na linha que é necessária.
+
+```javascript
+require('x');
+var y = require('y');
+var z;
+z = require('z').initialize();
+
+// requiring a module and using it in a function is ok
+var fs = require('fs');
+function readFile(filename, callback) {
+    fs.readFile(filename, callback)
+}
+
+// you can use a ternary to determine which module to require
+var logger = DEBUG ? require('dev-logger') : require('logger');
+
+// if you want you can require() at the end of your module
+function doSomethingA() {}
+function doSomethingB() {}
+var x = require("x"),
+    z = require("z");
+
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require
+  require('dotenv').config();
+}
+```
+
+### [handle-callback-err](https://eslint.org/docs/rules/handle-callback-err)
+- Em Javascript é comum a utilização de callbacks e o retorno de erros nos mesmos, portanto essa regra padroniza quais nomes devem ser utilizados para os parâmetros que irão receber o erro no callback, sendo assim os nomes deverão ser:
+  - error
+  - err
+
+```javascript
+function loadData (error, data) {
+  if (error) {
+    console.log(error.stack);
+  }
+  doSomething();
+}
+
+function loadData (err, data) {
+  if (err) {
+    console.log(err.stack);
+  }
+  doSomething();
+}
+```
+
+### [id-blacklist](https://eslint.org/docs/rules/id-blacklist)
+- Essa regra define nomes impróprios para dar à variáveis, parâmetros, funções e propriedades de objetos, porém essa regra não se aplica à funções e propriedades de objetos que não são de controle do desenvolvedor.
+- Nomes não permitidos:
+  - data
+  - e
+  - cb
+  - el
+  - element
+
+```javascript
+const data = '';
+foo.data = '';
+array.map(e => {...});
+array.map(el => {...});
+array.map(element => {...});
+
+function doSomething(cb, data) {...};
+```
+
+### [id-length](https://eslint.org/docs/rules/id-length)
+- Ao criar uma variável ou parâmetro será necessário ter pelo menos 3 caracteres, com exceção de `id` e `fs`, dessa forma será criado variáveis e parâmetros com nomes mais consistentes e explicativos do que será passado ou armazenado.
+
+### [implicit-arrow-linebreak](https://eslint.org/docs/rules/implicit-arrow-linebreak)
+- Nem sempre é necessário que uma arrow function seja composta por um bloco, pois se o mesmo não for definido o `return` é dado automaticamente logo em seguida da `=>`, caso ocorra isso o corpo da função deverá ficar na mesma linha de declaração da mesma.
+
+```javascript
+(foo) => bar;
+
+(foo) => (bar);
+
+(foo) => bar => baz;
+
+(foo) => (
+  bar()
+);
+```
+
+### [indent](https://eslint.org/docs/rules/indent)
+- A indentação do código terá que ter 2 espaços.
+
+### [init-declarations](https://eslint.org/docs/rules/init-declarations)
+- No caso do uso de `const` é necessário que seja atribuído um valor ao criar a variável, essa regra define que em caso do uso de `let` essa atribuição ao criar a variável não seja necessária.
+
+```javascript
+const number = 1;
+let string;
+
+string = 'text';
+```
+
+### [key-spacing](https://eslint.org/docs/rules/key-spacing)
+- Quando for criado um objeto e suas propriedades forem definidas no momento da criação desse objeto o valor deve ser separado com um espaço.
+
+```javascript
+const object = { a: 1 };
+const otherObject = {
+  a: 1,
+};
+```
+
+### [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing)
+
+
