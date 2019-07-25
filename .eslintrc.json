@@ -135,7 +135,7 @@
       "ignoreRegExpLiterals": true,
       "code": 120
     }],
-    "max-lines": "off",
+    "max-lines": "error",
     "max-lines-per-function": "off",
     "max-nested-callbacks": ["error", 2],
     "max-params": "error",

@@ -751,3 +751,57 @@ class Foo {
   }
 }
 ```
+
+### [max-classes-per-file](https://eslint.org/docs/rules/max-classes-per-file)
+- Será permitido apenas uma classe dentro de um arquivo
+
+### [max-depth](https://eslint.org/docs/rules/max-depth)
+- Ficar implementando código dentro de bloco pode se tornar muito verboso e em alguns casos difícil a leitura do mesmo, por exemplo, o conhecido "callback hell", portanto fica definido que poderá ter bloco dentro de outro com no máximo 3 níveis, segue exemplo:
+
+```javascript
+if (true) {
+  if (true) {
+    if (true) {
+      // do something
+    }
+  }
+}
+```
+
+### [max-len](https://eslint.org/docs/rules/max-len)
+- Essa regra define o tamanho total que um linha pode ter, em alguns casos essa regra poderá ser ignorada.
+- Casos que essa regra será ignorada:
+  - URLs
+  - Strings
+  - Strings literais
+  - Regex (literais, não utilizando o constructor RegExp)
+
+**Obs.:** Mesmo que em strings eu possa usar strings literais e quebrar a linha, essa quebra de linha é respeitada, gerando uma string com linhas, por isso será ignorada.
+
+- Para código o tamanho será definido para `120` caracteres, contando com espaços.
+- Indentação terá que respeitar o tamanho de `2` espaços
+
+### [max-nested-callbacks](https://eslint.org/docs/rules/max-nested-callbacks)
+- No intuito de evitar o "callback hell" não será permitido inserir mais de `2` callbacks um dentro de outro.
+
+```javascript
+function foo(callback) {};
+
+foo(() => {
+  foo(() => {
+    // do something
+  });
+});
+```
+
+### [max-params](https://eslint.org/docs/rules/max-params)
+- Para evitar que seja criado funções com muitos parâmetros e assim tornando difícil a leitura e até mesmo a reutilização, será limitado a `3` parâmetros, caso seja necessário adicionar mais parâmetros terá que ser usado um objeto.
+
+```javascript
+function foo(bar, abc, xyz) {
+  // do something
+}
+```
+
+### [max-statements-per-line](https://eslint.org/docs/rules/max-statements-per-line)
+- 
