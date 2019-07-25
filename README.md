@@ -628,5 +628,126 @@ const otherObject = {
 ```
 
 ### [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing)
+- Essa regra define que palavras reservadas do Javascript terão que conter espaço antes e depois de sua declaração.
+- Lista de palavras reservadas:
+  - `as` (em declarações de módulos)
+  - `async` (funções assíncronas)
+  - `await` (expressões await)
+  - `break`
+  - `case`
+  - `catch`
+  - `class`
+  - `const`
+  - `continue`
+  - `debugger`
+  - `default`
+  - `delete`
+  - `do`
+  - `else`
+  - `export`
+  - `extends`
+  - `finally`
+  - `for`
+  - `from` (em declarações de módulos)
+  - `function`
+  - `get` (getters)
+  - `if`
+  - `import`
+  - `in`
+  - `instanceof`
+  - `let`
+  - `new`
+  - `of` (em estrutura de um for-of)
+  - `return`
+  - `set` (setters)
+  - `static`
+  - `super`
+  - `switch`
+  - `this`
+  - `throw`
+  - `try`
+  - `typeof`
+  - `var`
+  - `void`
+  - `while`
+  - `with`
+  - `yield`
 
+#### Exemplo
+```javascript
+if (foo) {
+  // do something
+} else if (bar) {
+  // do something
+}
+```
 
+### [line-comment-position](https://eslint.org/docs/rules/line-comment-position)
+- Não será permitido inserir comentários na linha onde há algum código, caso seja necessário adicionar algum comentário o mesmo deverá vir acima do código.
+
+```javascript
+// do something
+console.log();
+```
+
+### [lines-around-comment](https://eslint.org/docs/rules/lines-around-comment)
+- Essa regra define quando deve haver linhas vazias em volta de comentários e onde os comentários poderão ser colocados, seja em um bloco `/*` ou em uma linha `//`
+- Algumas regras onde é permitido colocar comentários:
+  - allowBlockStart (`true`) - Permite inserir comentários no início de blocos.
+  - allowBlockEnd (`false`) - Não permite inserir comentários no final de blocos
+  - allowClassStart (`true`) - Permite inserir comentários no início de classes
+  - allowClassEnd (`false`) - Não permite inserir comentários no final de classes
+  - allowObjectStart (`true`) - Permite inserir comentários no início de objetos
+  - allowObjectEnd (`false`) - Não permite inserir comentários no final de objetos
+  - allowArrayStart (`true`) - Permite inserir comentários no início de arrays
+  - allowArrayEnd (`false`) - Não permite inserir comentários no final de arrays
+
+#### Exemplos
+```javascript
+\n
+/*
+ * beforeBlockComment: true
+ * afterBlockComment: false
+ */
+
+\n
+// beforeLineComment: true, afterBlockLineComment: false
+
+function bar(foo) {
+  // allowBlockStart: true, allowBlockEnd: false
+  console.log(foo);
+}
+
+class Foo {
+  // allowClassStart: true, allowClassEnd: false
+  constructor() {
+    this.a = '';
+  }
+}
+
+const object = {
+  // allowObjectStart: true, allowObjectEnd: false
+  foo: 'bar',
+};
+
+const array = [
+  // allowArrayStart: true, allowArrayEnd: false
+  1,
+  2,
+];
+```
+
+### [lines-between-class-members](https://eslint.org/docs/rules/lines-between-class-members)
+- Para cada membro dentro de uma classe deverá conter uma linha vazia os separando.
+
+```javascript
+class Foo {
+  foo() {
+    // do something
+  }
+
+  bar() {
+    // do somethind
+  }
+}
+```
