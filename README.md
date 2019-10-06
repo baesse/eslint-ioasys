@@ -872,3 +872,13 @@ function (foo){
 ```javascript
   /* eslint multiline-comment-style: ["error", "starred-block"] */
 ```
+
+### [multiline-ternary](https://eslint.org/docs/rules/multiline-ternary)
+
+- O JavaScript permite que os operandos de expressão ternária sejam separados por novas linhas, o que pode melhorar a legibilidade do seu programa.
+
+```javascript
+  foo > bar ?
+    value1 :
+    value2;
+```
