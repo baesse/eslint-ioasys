@@ -864,3 +864,11 @@ function (foo){
   switch (discriminant) { default: }
 }
 ```
+
+### [multiline-comment-style](https://eslint.org/docs/rules/max-statements-per-line)
+
+- Muitos guias de estilo exigem um estilo específico para comentários que abrangem várias linhas. Por exemplo, alguns guias de estilo preferem o uso de um comentário de bloco único para comentários de várias linhas, enquanto outros guias de estilo preferem comentários de linha consecutivos
+
+```javascript
+  /* eslint multiline-comment-style: ["error", "starred-block"] */
+```
